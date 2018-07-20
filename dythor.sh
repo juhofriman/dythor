@@ -1,5 +1,9 @@
 #! /bin/bash
 
+USER_DIR=$PWD
+
+cd "$(dirname "$0")"
+
 SUB_CMDS=()
 
 for SUB_CMD in dythor-*.sh; do
@@ -12,13 +16,15 @@ for SUB_CMD in dythor-*.sh; do
     fi
 done
 
-usage () {
-  echo "usage: dythor ACTION "
+function usage {
+  echo "usage: dythor <command> "
   echo
-
+  echo "Commands:"
+  echo
   for SUB_CMD in "${SUB_CMDS[@]}"; do
     describe_$SUB_CMD
   done
+  echo
 }
 
 ACTION=$1
@@ -27,4 +33,8 @@ if [ -z $ACTION ] ; then
   usage
 else
   execute_$ACTION "${@:2}"
+  if [ $? != 0 ]; then
+    echo "No such command $ACTION"
+    $?
+  fi
 fi

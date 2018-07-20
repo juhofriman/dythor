@@ -1,7 +1,7 @@
 #! /bin/bash
 
 describe_help() {
-  echo -e "help \t Show help"
+  echo -e "\thelp \t\t Show help"
 }
 
 help_help() {
@@ -30,6 +30,8 @@ function common_dythor_help {
   echo
   echo "Dythor (weird concatenation of docker and python) is a docker wrapper for running different python environments easily."
   echo "Dythor exists primarily because python setup in OS X is just horrible."
+  echo
+  echo "Dythor mounts your current working directory to container automatically."
 }
 
 execute_help() {

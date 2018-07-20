@@ -1,11 +1,11 @@
 #! /bin/bash
 
-describe_list() {
-  echo -e "list \t List available python versions"
+describe_list-remote() {
+  echo -e "\tlist-remote \t List available python versions"
 }
 
-help_list() {
-  echo "usage: dythor list [<filter>]"
+help_list-remote() {
+  echo "usage: dythor list-remote [<filter>]"
   echo
   echo "Lists available docker images for python in dockerhub."
   echo
@@ -18,7 +18,7 @@ function fetch_tags {
     awk -F: '{print $3}'
 }
 
-execute_list() {
+execute_list-remote() {
   FILTER=$1
   if [ -z $FILTER ]; then
     fetch_tags
