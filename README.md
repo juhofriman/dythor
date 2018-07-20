@@ -1,19 +1,19 @@
-# DythoR (D|P o|y c|t k|h e|o R|N)
+# Dythor
 
 Dythor is a utility script thingy to run different python versions easily using docker.
 
 Use case is that to my experience, it's super hard to create *good* python environment in OS X. With dythor, you can just say:
 
-```
-MACVP0URHV2R:dythor juhofr$ dythor run 3.7 --version
+```shell
+$ dythor run 3.7 --version
 Python 3.7.0
-MACVP0URHV2R:dythor juhofr$ dythor run 2.7 --version
+$ dythor run 2.7 --version
 Python 2.7.15
 ```
 
 This means that one can do for example this:
 
-```bash
+```shell
 $ echo -e 'import sys\nprint("Holla! Running on:")\nprint(sys.version)' > script.py
 $ cat script.py
 import sys
@@ -54,6 +54,38 @@ Use `dythor shell <TAG>` to open a shell to the container. This is now the way t
 Use `dythor help` to get some help.
 
 Use `dythor help COMMAND` (like `dythor help run`) to get help on commmands.
+
+```shell
+$ dythor
+usage: dythor <command>
+
+Commands:
+
+	help 		 Show help
+	list-local 	 List python versions locally available (i.e runs without fetch)
+	list-remote 	 List available python versions
+	run 		 Run python environment
+	shell 		 Open shell to environment
+```
+
+## Need binary named python?
+
+Make an alias!
+
+```shell
+$ alias python="dythor run 2.7"
+$ python --version
+Python 2.7.15
+$ python --version
+Python 2.7.15
+$ python --version
+Python 2.7.15
+$ alias python="dythor run 3.7"
+$ python --version
+Python 3.7.0
+```
+
+Or use `.bash_profile` or what ever is your poison.
 
 ## What's missing?
 
