@@ -76,10 +76,6 @@ Make an alias!
 $ alias python="dythor run 2.7"
 $ python --version
 Python 2.7.15
-$ python --version
-Python 2.7.15
-$ python --version
-Python 2.7.15
 $ alias python="dythor run 3.7"
 $ python --version
 Python 3.7.0
@@ -92,4 +88,7 @@ Or use `.bash_profile` or what ever is your poison.
 * Port binding for running services
 * Lifecycle of containers (nuke container and such)
 * Nicer documentation for scripts
+* pip dependencies
+* virtualenv?
+* Should use alpine images by default?
 * Lot's of stuff actually :P
